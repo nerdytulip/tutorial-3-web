@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const setInputField = (inputField, value) => {
     setFormData({
@@ -57,7 +59,7 @@ export const RegisterForm = () => {
       localStorage.setItem("lastName", formData.lastName);
       localStorage.setItem("email", formData.email);
       console.log("submitted the formData");
-      window.location.href = "/profile";
+      navigate("/profile");
       console.log(formData);
     }
   };
